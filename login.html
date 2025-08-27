@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Trang Đăng Nhập</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 50px;
+            background-color: #f2f2f2;
+        }
+        .login-container {
+            max-width: 300px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 6px;
+            box-shadow: 0 0 10px #aaa;
+        }
+        input[type=text], input[type=password] {
+            width: 100%;
+            padding: 8px;
+            margin: 6px 0 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .error {
+            color: red;
+            margin-bottom: 12px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="login-container">
+    <h2>Đăng nhập</h2>
+    <div id="error-msg" class="error"></div>
+    <input type="text" id="username" placeholder="Tên đăng nhập" />
+    <input type="password" id="password" placeholder="Mật khẩu" />
+    <button onclick="login()">Đăng nhập</button>
+</div>
+
+<script>
+    function login() {
+        // Tài khoản và mật khẩu có sẵn
+        const validUsername = "user123";
+        const validPassword = "password123";
+
+        // Lấy giá trị nhập vào
+        const username = document.getElementById("username").value;
+        const password = document.getElementById("password").value;
+
+        const errorMsg = document.getElementById("error-msg");
+        errorMsg.textContent = "";
+
+        if (username === validUsername && password === validPassword) {
+            // Đăng nhập thành công -> chuyển hướng sang trang shoppet.html
+            window.location.href = "shoppet.html";
+        } else {
+            // Đăng nhập thất bại
+            errorMsg.textContent = "Tên đăng nhập hoặc mật khẩu không đúng!";
+        }
+    }
+</script>
+
+</body>
+</html>
